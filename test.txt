@@ -1,18 +1,19 @@
 file-tree/
-├── .file-tree-ignore
-├── .gitignore
+├── .file-tree-ignore (26 B)
+├── .gitignore (18 B)
 ├── .vscode/
-│   └── settings.json
-├── jest.config.mjs
-├── package-lock.json
-├── package.json
-├── README.md
+│   └── settings.json (207 B)
+├── jest.config.mjs (305 B)
+├── package-lock.json (182.5 KB)
+├── package.json (752 B)
+├── README.md (2.8 KB)
 ├── src/
-│   ├── cli.ts
-│   ├── generateTree.ts
+│   ├── cli.ts (1.6 KB)
+│   ├── generateTree.ts (2.9 KB)
 │   ├── types/
-│   │   └── TreeOptions.ts
+│   │   └── TreeOptions.ts (202 B)
 │   └── utils/
-│       ├── formatSize.ts
-│       └── ignoreFiles.ts
-└── tsconfig.json
+│       ├── formatSize.ts (227 B)
+│       └── ignoreFiles.ts (1.1 KB)
+├── test.txt (385.5 KB)
+└── tsconfig.json (387 B)
