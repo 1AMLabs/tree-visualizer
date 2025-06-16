@@ -1,0 +1,18 @@
+file-tree/
+├── .file-tree-ignore
+├── .gitignore
+├── .vscode/
+│   └── settings.json
+├── jest.config.mjs
+├── package-lock.json
+├── package.json
+├── README.md
+├── src/
+│   ├── cli.ts
+│   ├── generateTree.ts
+│   ├── types/
+│   │   └── TreeOptions.ts
+│   └── utils/
+│       ├── formatSize.ts
+│       └── ignoreFiles.ts
+└── tsconfig.json

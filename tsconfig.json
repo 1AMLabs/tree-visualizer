@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["jest", "node"],
+    "outDir": "dist",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src", "test"],
+  "exclude": ["test", "**/*.test.ts"]
+}
