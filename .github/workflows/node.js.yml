@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "master" ]
     tags:
-      - 'v*.*.*'  # 🏷️ Trigger NPM publish on version tags like v1.0.0
+      - 'v*.*.*'
   pull_request:
     branches: [ "master" ]
 
