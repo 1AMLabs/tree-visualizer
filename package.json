@@ -11,7 +11,15 @@
     "dev": "tsx src/cli.ts",
     "test": "echo \"No tests yet\" && exit 0"
   },
-  "keywords": [],
+  "keywords": [
+    "tree",
+    "visualizer",
+    "cli",
+    "typescript",
+    "file system",
+    "directory structure",
+    "command line tool"
+  ],
   "author": "",
   "license": "ISC",
   "description": "",
