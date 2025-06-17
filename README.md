@@ -1,10 +1,11 @@
 # 📁 tree-visualizer
-
 [![Build Status](https://github.com/1AMLabs/tree-visualizer/actions/workflows/node.js.yml/badge.svg)](https://github.com/1AMLabs/tree-visualizer/actions/workflows/node.js.yml)
-[![NPM version](https://img.shields.io/npm/v/tree-visualizer.svg)](https://www.npmjs.com/package/tree-visualizer)
-[![License](https://img.shields.io/npm/l/tree-visualizer)](./LICENSE)
-[![Node.js](https://img.shields.io/node/v/tree-visualizer)](https://nodejs.org)
-[![Downloads](https://img.shields.io/npm/dm/tree-visualizer.svg)](https://www.npmjs.com/package/tree-visualizer)
+[![NPM version](https://img.shields.io/npm/v/@1amlabs/tree-visualizer.svg)](https://www.npmjs.com/package/@1amlabs/tree-visualizer)
+[![License](https://img.shields.io/npm/l/@1amlabs/tree-visualizer)](./LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E=22.0.0-blue)](https://nodejs.org/en/blog/release/v22.0.0)
+[![Downloads](https://img.shields.io/npm/dm/@1amlabs/tree-visualizer.svg)](https://www.npmjs.com/package/@1amlabs/tree-visualizer)
+
+
 
 > 🧰 Generate a clean and customizable visual file tree of any directory from your terminal.
 
