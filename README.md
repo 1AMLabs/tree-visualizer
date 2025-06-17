@@ -24,7 +24,7 @@
 ## 📦 Installation
 
 ```sh
-npm install -g tree-visualizer
+npm install -g @1amlabs/tree-visualizer
 ```
 
 ## 🛠️ Usage
