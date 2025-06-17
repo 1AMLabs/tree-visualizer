@@ -75,7 +75,7 @@ tree-visualizer --use-gitignore
 You can also use tree-visualizer as a library in your Node.js projects:
 
 ```ts
-import { generateTree } from 'tree-visualizer';
+import { generateTree } from '@1amlabs/tree-visualizer';
 
 await generateTree(
   './my-folder',

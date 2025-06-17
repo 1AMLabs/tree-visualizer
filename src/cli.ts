@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Command } from 'commander';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -40,9 +38,12 @@ const ignoreList = options.ignore
     )
   : null;
 
-  await generateTree(startPath, outPath, ignoreList, {
-    showSizes: options.sizes ?? false,
-    maxDepth: options.maxDepth ?? Infinity,
-    debug: options.debug ?? false,
-    useGitignore: options.useGitignore ?? false,
-  });
+await generateTree(startPath, outPath, ignoreList, {
+  showSizes: options.sizes ?? false,
+  maxDepth: options.maxDepth ?? Infinity,
+  debug: options.debug ?? false,
+  useGitignore: options.useGitignore ?? false,
+});
+
+
+export { generateTree } from './generateTree.js';
