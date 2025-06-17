@@ -1,9 +1,9 @@
 # 📁 file-tree
 
+[![Build Status](https://github.com/1AMLabs/tree-visualizer/actions/workflows/node.js.yml/badge.svg)](https://github.com/1AMLabs/tree-visualizer/actions/workflows/node.js.yml)
 [![NPM version](https://img.shields.io/npm/v/file-tree.svg)](https://www.npmjs.com/package/file-tree)
 [![License](https://img.shields.io/npm/l/file-tree)](./LICENSE)
 [![Node.js](https://img.shields.io/node/v/file-tree)](https://nodejs.org)
-[![Build](https://img.shields.io/github/actions/workflow/status/your-username/file-tree/ci.yml?branch=main)](https://github.com/your-username/file-tree/actions) <!-- Replace with your actual repo -->
 [![Downloads](https://img.shields.io/npm/dm/file-tree.svg)](https://www.npmjs.com/package/file-tree)
 
 > 🧰 Generate a clean and customizable visual file tree of any directory from your terminal.
