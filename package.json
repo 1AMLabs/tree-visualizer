@@ -1,10 +1,10 @@
 {
-  "name": "file-tree",
+  "name": "@1amlabs/tree-visualizer",
   "version": "1.0.0",
   "main": "dist/cli.js",
   "type": "module",
   "bin": {
-    "file-tree": "./dist/cli.js"
+    "tree-visualizer": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc",

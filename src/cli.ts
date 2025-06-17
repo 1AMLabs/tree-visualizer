@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const program = new Command();
 
 program
-  .name('file-tree')
+  .name('tree-visualizer')
   .description('Generate a visual file tree of a directory')
   .option('--start <dir>', 'Directory to start scanning', '.')
   .option('--out <file>', 'Output file path')

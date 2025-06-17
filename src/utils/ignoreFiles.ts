@@ -21,7 +21,7 @@ export async function loadGitignoreFile(basePath: string): Promise<string[]> {
 }
 
 export async function loadIgnoreFile(basePath: string): Promise<string[]> {
-    const ignorePath = path.join(basePath, '.file-tree-ignore');
+    const ignorePath = path.join(basePath, '.tree-visualizer-ignore');
     let ignored: string[];
     try {
         const data = await fs.readFile(ignorePath, 'utf-8');
@@ -33,7 +33,7 @@ export async function loadIgnoreFile(basePath: string): Promise<string[]> {
     } catch {
         ignored = [];
 
-        console.warn(`Warning: .file-tree-ignore file not found at ${ignorePath}`);
+        console.warn(`Warning: .tree-visualizer-ignore file not found at ${ignorePath}`);
         return ignored;
     }
 }

@@ -1,5 +1,5 @@
-file-tree/
-├── .file-tree-ignore (26 B)
+tree-visualizer/
+├── .tree-visualizer-ignore (26 B)
 ├── .gitignore (18 B)
 ├── .vscode/
 │   └── settings.json (207 B)
