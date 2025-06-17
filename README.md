@@ -1,10 +1,10 @@
-# 📁 file-tree
+# 📁 tree-visualizer
 
 [![Build Status](https://github.com/1AMLabs/tree-visualizer/actions/workflows/node.js.yml/badge.svg)](https://github.com/1AMLabs/tree-visualizer/actions/workflows/node.js.yml)
-[![NPM version](https://img.shields.io/npm/v/file-tree.svg)](https://www.npmjs.com/package/file-tree)
-[![License](https://img.shields.io/npm/l/file-tree)](./LICENSE)
-[![Node.js](https://img.shields.io/node/v/file-tree)](https://nodejs.org)
-[![Downloads](https://img.shields.io/npm/dm/file-tree.svg)](https://www.npmjs.com/package/file-tree)
+[![NPM version](https://img.shields.io/npm/v/tree-visualizer.svg)](https://www.npmjs.com/package/tree-visualizer)
+[![License](https://img.shields.io/npm/l/tree-visualizer)](./LICENSE)
+[![Node.js](https://img.shields.io/node/v/tree-visualizer)](https://nodejs.org)
+[![Downloads](https://img.shields.io/npm/dm/tree-visualizer.svg)](https://www.npmjs.com/package/tree-visualizer)
 
 > 🧰 Generate a clean and customizable visual file tree of any directory from your terminal.
 
@@ -13,7 +13,7 @@
 ## ✨ Features
 
 - 📂 Outputs a visual tree of files and folders
-- 🚫 Supports ignoring files via `.gitignore`, `.file-tree-ignore`, or CLI patterns
+- 🚫 Supports ignoring files via `.gitignore`, `.tree-visualizer-ignore`, or CLI patterns
 - 📏 Optionally includes file sizes
 - 📉 Configurable maximum folder depth
 - 🖨️ Outputs to console or a file
@@ -23,13 +23,13 @@
 ## 📦 Installation
 
 ```sh
-npm install -g file-tree
+npm install -g tree-visualizer
 ```
 
 ## 🛠️ Usage
 
 ```sh
-file-tree [options]
+tree-visualizer [options]
 ```
 
 | Option                | Description                                                                 |
@@ -47,34 +47,34 @@ file-tree [options]
 Display the file tree of the current directory:
 
 ```sh
-file-tree
+tree-visualizer
 ```
 Scan a specific folder while ignoring node_modules and TypeScript files:
 
 ```sh
-file-tree --start src --ignore node_modules,**/*.ts
+tree-visualizer --start src --ignore node_modules,**/*.ts
 ```
 Include file sizes and limit the depth to 2 levels:
 
 ```sh
-file-tree --sizes --max-depth 2
+tree-visualizer --sizes --max-depth 2
 ```
 Write the result to a file:
 
 ```sh
-file-tree --out tree.txt
+tree-visualizer --out tree.txt
 ```
 Use your project's .gitignore for ignore patterns:
 
 ```sh
-file-tree --use-gitignore
+tree-visualizer --use-gitignore
 ```
 
 ## 🧩 Programmatic Usage
-You can also use file-tree as a library in your Node.js projects:
+You can also use tree-visualizer as a library in your Node.js projects:
 
 ```ts
-import { generateTree } from 'file-tree';
+import { generateTree } from 'tree-visualizer';
 
 await generateTree(
   './my-folder',
