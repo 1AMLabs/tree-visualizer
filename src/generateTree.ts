@@ -73,16 +73,28 @@ export async function generateTree(
 	outPath: string | null,
 	cliIgnore: string[] | null,
 	options: ITreeOptions
-  	): Promise<void> {
+): Promise<void> {
 		if (cliIgnore?.length) {
 			ignored = cliIgnore;
 		} else if (options.useGitignore) {
-			const ignoreFiles = await loadGitignoreFile(startPath);
+			const ignoreFiles = await loadGitignoreFile("./");
 			ignored = [...ignoreFiles];
 		} else {
-			const ignoreFiles = await loadIgnoreFile(startPath);
+			const ignoreFiles = await loadIgnoreFile("./");
 			ignored = [...ignoreFiles];
 		}
+
+	// Check if startPath exists and is a directory
+	try {
+		const stat = await fs.stat(startPath);
+		if (!stat.isDirectory()) {
+			console.error(chalk.red(`Error: ${startPath} is not a directory.`));
+			process.exit(1);
+		}
+	} catch (err) {
+		console.error(chalk.red(`Error: Directory ${startPath} does not exist.`));
+		process.exit(1);
+	}
 
 	const rootName = path.basename(startPath);
 	const displayRoot = chalk.green.bold(rootName + '/');
