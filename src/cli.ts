@@ -25,6 +25,7 @@ program
   }, Infinity)
   .option('--debug', 'Enable debug logging')
   .option('--use-gitignore', 'Use .gitignore patterns for ignoring files')
+  .option('--ignore-file <file>', 'Path to a custom ignore file', '.treeignore')
   .parse();
 
 const options = program.opts();
