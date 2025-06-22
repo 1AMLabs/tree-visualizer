@@ -3,6 +3,7 @@ export interface ITreeOptions {
     maxDepth: number;
     debug: boolean;
     useGitignore?: boolean;
+    timestamp?: boolean;
 }
 
 export type IEntry = {
