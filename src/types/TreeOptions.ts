@@ -4,6 +4,7 @@ export interface ITreeOptions {
     debug: boolean;
     useGitignore?: boolean;
     ignoreFile?: string;
+    timestamp?: boolean;
 }
 
 export type IEntry = {

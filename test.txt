@@ -1,19 +1,276 @@
-tree-visualizer/
-├── .tree-visualizer-ignore (26 B)
+file-tree/
+├── .file-tree-ignore (26 B)
+├── .git/
+│   ├── COMMIT_EDITMSG (6 B)
+│   ├── config (1.1 KB)
+│   ├── description (73 B)
+│   ├── FETCH_HEAD (245 B)
+│   ├── HEAD (47 B)
+│   ├── hooks/
+│   │   ├── applypatch-msg.sample (478 B)
+│   │   ├── commit-msg.sample (896 B)
+│   │   ├── fsmonitor-watchman.sample (4.6 KB)
+│   │   ├── post-update.sample (189 B)
+│   │   ├── pre-applypatch.sample (424 B)
+│   │   ├── pre-commit.sample (1.6 KB)
+│   │   ├── pre-merge-commit.sample (416 B)
+│   │   ├── pre-push.sample (1.3 KB)
+│   │   ├── pre-rebase.sample (4.8 KB)
+│   │   ├── pre-receive.sample (544 B)
+│   │   ├── prepare-commit-msg.sample (1.5 KB)
+│   │   ├── push-to-checkout.sample (2.7 KB)
+│   │   ├── sendemail-validate.sample (2.3 KB)
+│   │   └── update.sample (3.6 KB)
+│   ├── index (1.7 KB)
+│   ├── info/
+│   │   └── exclude (240 B)
+│   ├── logs/
+│   │   ├── HEAD (4.3 KB)
+│   │   └── refs/
+│   │       ├── heads/
+│   │       │   ├── bugfix/
+│   │       │   │   └── #3_ResolvePathDontExist (218 B)
+│   │       │   ├── master (3.2 KB)
+│   │       │   └── v1.0.3 (560 B)
+│   │       ├── remotes/
+│   │       │   └── origin/
+│   │       │       ├── bugfix/
+│   │       │       │   └── #3_ResolvePathDontExist (166 B)
+│   │       │       ├── HEAD (152 B)
+│   │       │       ├── master (2.4 KB)
+│   │       │       └── v1.0.3 (322 B)
+│   │       └── stash (162 B)
+│   ├── objects/
+│   │   ├── 03/
+│   │   │   └── 53c4f102c273871abfb0a7cba9ad02ab8fb302 (94 B)
+│   │   ├── 05/
+│   │   │   └── 99daf91a05634a011f868a08a1c5ffd437852f (543 B)
+│   │   ├── 0a/
+│   │   │   └── 48ec8e6f46e3f0222edbe66eb4ddfc517af920 (378 B)
+│   │   ├── 14/
+│   │   │   ├── 645a1172a5eb66c8dc292068ae0b1d93b35705 (833 B)
+│   │   │   └── b3c2d91f0864208fbf7d7e9f6f097675facd52 (378 B)
+│   │   ├── 18/
+│   │   │   └── df157420eec73d2a30148f8c87a691408595c3 (56 B)
+│   │   ├── 1c/
+│   │   │   └── 3308d767788054b16b2cb2678bca4b1a29a9bd (58 B)
+│   │   ├── 23/
+│   │   │   ├── 0dcd33d11945add2ce90ddc1453a6f5e599972 (663 B)
+│   │   │   └── 49c2035fbdbeec2561db5a83da487a724a369b (376 B)
+│   │   ├── 29/
+│   │   │   └── 96a5adcfe1e80b36257b97508bd14f6e979390 (1.1 KB)
+│   │   ├── 2b/
+│   │   │   └── 4024d4f65ce89f06ce7125a65395192423014c (377 B)
+│   │   ├── 31/
+│   │   │   └── f8e1c9959ff276a15e62d6fd62a74f2633e6c6 (377 B)
+│   │   ├── 32/
+│   │   │   └── 24623e2f9ce6fe9ec302f7e9faf443285d4832 (234 B)
+│   │   ├── 34/
+│   │   │   └── 735dcea62af2c96184fc149d11c74f179cd8e1 (1.2 KB)
+│   │   ├── 35/
+│   │   │   └── 5dbe2724a5dad698a8a61726feb1ad3044e733 (388 B)
+│   │   ├── 3b/
+│   │   │   └── 41dbf6a421385959785a1b5f2b394f6b9b0f79 (427 B)
+│   │   ├── 3c/
+│   │   │   └── 9df98bcc2cd07f5686ceb944087c6cc7b4d32d (540 B)
+│   │   ├── 3d/
+│   │   │   └── 82f884e06d6c25813d2b351b5f6a8cfbb09c0f (1.2 KB)
+│   │   ├── 3f/
+│   │   │   └── 7eaaa162a2add72f5cdc40857bf8425bfd8257 (228 B)
+│   │   ├── 42/
+│   │   │   └── 3e0a851b7d227ff87324b45c2594dfe6d1e59c (1.2 KB)
+│   │   ├── 43/
+│   │   │   └── 0e68a34a16c6d614de9bf3e70a2f9ca07ed5fe (110 B)
+│   │   ├── 44/
+│   │   │   └── 81c9993cd2ae38a288d5c07ca2914c1d16b0e5 (831 B)
+│   │   ├── 46/
+│   │   │   ├── 979dd512e2acdbefa42a4dc5b9177b223c32b7 (767 B)
+│   │   │   └── a72e80a4a05c9e1795320c115d58a530e313af (830 B)
+│   │   ├── 4b/
+│   │   │   └── 825dc642cb6eb9a060e54bf8d69288fbee4904 (15 B)
+│   │   ├── 4c/
+│   │   │   └── 689423ebcd59f961cadd8c0f2c9510d4e775ae (213 B)
+│   │   ├── 4d/
+│   │   │   └── d35009a9871b2f53d3dcf6473b2024ebaa882a (378 B)
+│   │   ├── 50/
+│   │   │   └── 6dd58dde6f3e8f76790a66623e9bcd991c3c3f (293 B)
+│   │   ├── 53/
+│   │   │   └── b3101d2576506d615da9563a7efcf91af808b9 (164 B)
+│   │   ├── 55/
+│   │   │   └── d9109c0d47a10cafa6e5748b70b9140022eae5 (215 B)
+│   │   ├── 57/
+│   │   │   └── eb85accea043548e1a3ac538bf6e96d60045f6 (58 B)
+│   │   ├── 59/
+│   │   │   ├── cae9e3f21e7e049cae5592debcb4a34feb5082 (378 B)
+│   │   │   └── e90995c0b2766957844489eb678a1575f4d803 (158 B)
+│   │   ├── 5a/
+│   │   │   └── b32a0fe7fb15677aa6f4dbdfec4061956a1638 (496 B)
+│   │   ├── 5d/
+│   │   │   └── 1af017cab041a563c21cc84e1561047e6e1c63 (51 B)
+│   │   ├── 62/
+│   │   │   └── 59d51b173153e7ec5f9e02ea2df12550863c98 (362 B)
+│   │   ├── 65/
+│   │   │   └── f846941dfdcee703c4a8e89ba90d2565f0a1e8 (496 B)
+│   │   ├── 68/
+│   │   │   └── 6ca3bed5a24315338922a0477ab1a6279bdbd1 (149 B)
+│   │   ├── 69/
+│   │   │   └── f0480b31127105cdcbc950950ceb170d9c88df (190 B)
+│   │   ├── 73/
+│   │   │   └── a1acfc30fb3736d7e18941d65594afd45ad194 (149 B)
+│   │   ├── 74/
+│   │   │   ├── 3cc75de7c0981a5730882353b738d99b88ea9a (51 B)
+│   │   │   └── b6e825aa290492d57327a7b2fc51e4fce5835f (91 B)
+│   │   ├── 76/
+│   │   │   ├── 2eda321de6fcd05a277ab12e97c5ce01e648ba (39 B)
+│   │   │   └── add878f8dd778c3381fb3da45c8140db7db510 (33 B)
+│   │   ├── 77/
+│   │   │   └── ef703abe27251802b89480862918eec8ce5830 (274 B)
+│   │   ├── 7a/
+│   │   │   └── a417988542fa5f1e5bd7aa549711c55f22b3b2 (218 B)
+│   │   ├── 7b/
+│   │   │   └── e9675cb77b02ac39bbcaae99fc67a427cdcaa0 (378 B)
+│   │   ├── 82/
+│   │   │   └── 520ecc8ed91d82a15b1a28c875629205b2662e (203 B)
+│   │   ├── 85/
+│   │   │   └── 94e2a947cd48effdb6569d93c4fc28b6b5bfca (634 B)
+│   │   ├── 86/
+│   │   │   └── c320304979e90c71020fc9ed7a0716f7de9242 (138 B)
+│   │   ├── 88/
+│   │   │   └── 9f60103d5a82f1bd27662adb5744c6c01f467b (93 B)
+│   │   ├── 89/
+│   │   │   └── e9bacf4d32946ec465b9e68c73e72405d11467 (243 B)
+│   │   ├── 8a/
+│   │   │   ├── 62cdfa98251cd365f2866879958c4e5f2cb1ad (156 B)
+│   │   │   └── b5d0bbc244b85959dd9f09ad7c8bc42f4ed08f (379 B)
+│   │   ├── 91/
+│   │   │   └── 3a7d36da0f085245b62fe9283d84b41abf6247 (182 B)
+│   │   ├── 92/
+│   │   │   └── c6fc03fa31390c6ce7ac894c01acd0a7643ae1 (378 B)
+│   │   ├── 94/
+│   │   │   └── 8a224a5cd9bd6be0ef29d33f073893f9bfd847 (495 B)
+│   │   ├── 98/
+│   │   │   └── 32b3f468d4ca2d4a4a2d20b89bc262e6a94f2b (378 B)
+│   │   ├── 99/
+│   │   │   └── 62e0e132e0899294379189ff8f65208360058b (243 B)
+│   │   ├── 9a/
+│   │   │   └── ed5c3223dda914faffca7c9180b499a0723b47 (46.8 KB)
+│   │   ├── 9c/
+│   │   │   └── 5021327ed88db906120529c94d5f9efb1c48f6 (1.1 KB)
+│   │   ├── 9e/
+│   │   │   └── b5c87a1f97537cd8d0f3c18bc6cde3fbaefae6 (378 B)
+│   │   ├── a9/
+│   │   │   └── 7cb78f6c1065ad716830f7fe71711107739032 (348 B)
+│   │   ├── aa/
+│   │   │   └── 183b1ecbf047f449b12de2ac726605f307cf42 (46.8 KB)
+│   │   ├── ad/
+│   │   │   └── af4c1a87eee05510c7df125056c5a2c95e1a88 (937 B)
+│   │   ├── af/
+│   │   │   └── 7f9dc3ad4e0d718d78bc6a7fb8676040e48317 (211 B)
+│   │   ├── b2/
+│   │   │   └── 6f939a96e24a9f8e7a3176706b9448b2b05b58 (46.8 KB)
+│   │   ├── b3/
+│   │   │   └── c276957e24a93b727efab202719cdb894be57e (349 B)
+│   │   ├── b4/
+│   │   │   └── 60eed991bb30722f8e8d63562902bcaccaed7c (138 B)
+│   │   ├── b6/
+│   │   │   └── 6ad9f5e8eaba082f3e7f6a22ea6b24cd15d9d5 (147 B)
+│   │   ├── b8/
+│   │   │   ├── ab369b97c18a46e7157a78111cd5023622dc47 (224 B)
+│   │   │   └── ce5075cfac9abf79e228be66ac178be7f8b66f (768 B)
+│   │   ├── bb/
+│   │   │   └── 5e0bd5e5b8932000669ce47de7ee46031507d3 (202 B)
+│   │   ├── bc/
+│   │   │   └── 83999b58044914f0fe99253a8987ad869f1a0a (239 B)
+│   │   ├── bf/
+│   │   │   └── 3635d19f7678b020e76dc27cd391938857ab50 (377 B)
+│   │   ├── c1/
+│   │   │   └── ebb1bc00a8395fb67befa498821be5dc811c1b (763 B)
+│   │   ├── c2/
+│   │   │   ├── 43a52aa0010820147497c3ef0470b5d6903f2d (377 B)
+│   │   │   └── 71ecd2353741e36f1991cfebe23e4dbf7a5418 (357 B)
+│   │   ├── c4/
+│   │   │   └── 8137665cd75f9dfb7afccd7b3ab040cfa5cb38 (377 B)
+│   │   ├── c6/
+│   │   │   └── 6bd397ca4e50ac794ad2d5ee36494520416707 (225 B)
+│   │   ├── c8/
+│   │   │   └── 76f3acc3d1ef32ca26fb9c5485df1599bae31f (433 B)
+│   │   ├── cb/
+│   │   │   ├── bc19650169e701447f4293f558131e77e31ef5 (56 B)
+│   │   │   └── c316b83944ecbaeac56bee1420933a5d228835 (207 B)
+│   │   ├── cd/
+│   │   │   └── 5cb66aaaa9a23fa8f25499770b24fabc85e677 (1.1 KB)
+│   │   ├── d0/
+│   │   │   └── 46f70107c1b057439b6808a319abd0a073c6f0 (215 B)
+│   │   ├── d7/
+│   │   │   └── 4273c706b10c129389f9b02c36b679c1c8da0c (378 B)
+│   │   ├── da/
+│   │   │   └── f3f2f846db1570df2a9989ee8de0e5b8098937 (1.2 KB)
+│   │   ├── e5/
+│   │   │   └── 287b1eead24105e5b2bca75f97eaed50a5d9d3 (498 B)
+│   │   ├── e6/
+│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391 (15 B)
+│   │   ├── ed/
+│   │   │   └── f9a33739dc461fccdbced44b7e11deffd6c7d4 (97 B)
+│   │   ├── f1/
+│   │   │   └── 4f9bdbe16f459b0184194574a8b588fd677871 (46.8 KB)
+│   │   ├── f2/
+│   │   │   ├── 3107025b137d25ed557fff6eb3437a3b87ac78 (148 B)
+│   │   │   └── b1d11097227b63fd565b334567bc6447a56e49 (167 B)
+│   │   ├── f3/
+│   │   │   ├── 5b4277152d177eef0419c2c1a953be2953f849 (1.2 KB)
+│   │   │   └── 7a6fcf82e894e988b2fa25e845b7591b697291 (206 B)
+│   │   ├── f4/
+│   │   │   └── 34eab820b1f37d1307641eb96e720eada4c6ab (379 B)
+│   │   ├── f5/
+│   │   │   └── c2a22f6cead18dcbb25c554a927ac37241a2f5 (495 B)
+│   │   ├── f9/
+│   │   │   └── 498a8e6527d131e819a3c528bada92f3f7fb4b (376 B)
+│   │   ├── fa/
+│   │   │   └── 46b20af589ab2f8a4dc0060b800c2b773620ba (495 B)
+│   │   ├── fd/
+│   │   │   └── 09b6b6ca1cc84980343bad704052cfd86f520b (58 B)
+│   │   ├── ff/
+│   │   │   └── 210bb9cc6cabd2712d52e37d52201660957267 (297 B)
+│   │   ├── info/
+│   │   └── pack/
+│   ├── ORIG_HEAD (41 B)
+│   └── refs/
+│       ├── heads/
+│       │   ├── bugfix/
+│       │   │   └── #3_ResolvePathDontExist (41 B)
+│       │   ├── master (41 B)
+│       │   └── v1.0.3 (41 B)
+│       ├── remotes/
+│       │   └── origin/
+│       │       ├── bugfix/
+│       │       │   └── #3_ResolvePathDontExist (41 B)
+│       │       ├── HEAD (32 B)
+│       │       ├── master (41 B)
+│       │       └── v1.0.3 (41 B)
+│       ├── stash (41 B)
+│       └── tags/
+│           ├── v1.0.3 (41 B)
+│           └── v1.0.5 (41 B)
+├── .github/
+│   ├── ISSUES_TEMPLATE/
+│   │   ├── bug_report.yml (490 B)
+│   │   └── feature_request.yml (392 B)
+│   └── workflows/
+│       └── node.js.yml (1.5 KB)
 ├── .gitignore (18 B)
 ├── .vscode/
 │   └── settings.json (207 B)
 ├── jest.config.mjs (305 B)
-├── package-lock.json (182.5 KB)
-├── package.json (752 B)
-├── README.md (2.8 KB)
+├── package-lock.json (187.7 KB)
+├── package.json (1.3 KB)
+├── README.md (3.0 KB)
 ├── src/
 │   ├── cli.ts (1.6 KB)
-│   ├── generateTree.ts (2.9 KB)
+│   ├── generateTree.ts (3.2 KB)
 │   ├── types/
 │   │   └── TreeOptions.ts (202 B)
 │   └── utils/
 │       ├── formatSize.ts (227 B)
-│       └── ignoreFiles.ts (1.1 KB)
-├── test.txt (385.5 KB)
+│       └── ignoreFiles.ts (1.2 KB)
+├── test.txt (602 B)
 └── tsconfig.json (387 B)

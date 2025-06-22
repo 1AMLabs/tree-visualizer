@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fs from 'fs/promises';
 import path from 'path';
 import chalk from 'chalk';
@@ -6,6 +8,7 @@ import { ITreeOptions } from './types/TreeOptions.js';
 import type { IEntry } from './types/TreeOptions.js';
 import { formatSize } from './utils/formatSize.js';
 import { loadIgnoreFile, loadGitignoreFile } from './utils/ignoreFiles.js';
+import Moment from 'moment';
 
 let ignored: string[] = [];
 
@@ -27,7 +30,7 @@ async function walk(
 	depth = 0,
 	prefix = '',
 	root = dir,
-	options: { showSizes: boolean; maxDepth: number; debug: boolean }
+	options: ITreeOptions
 ): Promise<IEntry[]> {
 	if (depth > options.maxDepth) return [];
 
@@ -46,14 +49,16 @@ async function walk(
 		const stats = await fs.stat(fullPath);
 		const sizeLabel =
 			options.showSizes && file.isFile() ? ` (${formatSize(stats.size)})` : '';
+		const timestampLabel =
+			options.timestamp && file.isFile() ? ` (${Moment(stats.mtime).format('YYYY-MM-DD HH:mm:ss')})` : '';
 
 		const label = file.isDirectory()
 			? chalk.blue.bold(file.name + '/')
-			: file.name + sizeLabel;
+			: file.name + sizeLabel + timestampLabel;
 
 		const rawLabel = file.isDirectory()
 			? file.name + '/'
-			: file.name + sizeLabel;
+			: file.name + sizeLabel + timestampLabel;
 
 		entries.push({
 			display: `${prefix}${branch}${label}`,
