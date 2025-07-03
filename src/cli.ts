@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -18,6 +20,7 @@ program
     'Comma-separated or multiple patterns to ignore (e.g. "node_modules,**/*.ts")'
   )
   .option('--sizes', 'Include file sizes in the output')
+  .option('--timestamp', 'Include the timestamp of last modification')
   .option('--max-depth <n>', 'Maximum folder depth to scan', (v) => {
     const parsed = parseInt(v, 10);
     if (isNaN(parsed)) throw new Error('--max-depth must be a number');
@@ -25,6 +28,7 @@ program
   }, Infinity)
   .option('--debug', 'Enable debug logging')
   .option('--use-gitignore', 'Use .gitignore patterns for ignoring files')
+  .option('--ignore-file <file>', 'Path to a custom ignore file', '.treeignore')
   .parse();
 
 const options = program.opts();
@@ -43,6 +47,7 @@ await generateTree(startPath, outPath, ignoreList, {
   maxDepth: options.maxDepth ?? Infinity,
   debug: options.debug ?? false,
   useGitignore: options.useGitignore ?? false,
+  timestamp: options.timestamp ?? false
 });
 
 

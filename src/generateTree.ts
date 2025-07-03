@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fs from 'fs/promises';
 import path from 'path';
 import chalk from 'chalk';
@@ -6,6 +8,7 @@ import { ITreeOptions } from './types/TreeOptions.js';
 import type { IEntry } from './types/TreeOptions.js';
 import { formatSize } from './utils/formatSize.js';
 import { loadIgnoreFile, loadGitignoreFile } from './utils/ignoreFiles.js';
+import Moment from 'moment';
 
 let ignored: string[] = [];
 
@@ -27,7 +30,7 @@ async function walk(
 	depth = 0,
 	prefix = '',
 	root = dir,
-	options: { showSizes: boolean; maxDepth: number; debug: boolean }
+	options: ITreeOptions
 ): Promise<IEntry[]> {
 	if (depth > options.maxDepth) return [];
 
@@ -46,14 +49,16 @@ async function walk(
 		const stats = await fs.stat(fullPath);
 		const sizeLabel =
 			options.showSizes && file.isFile() ? ` (${formatSize(stats.size)})` : '';
+		const timestampLabel =
+			options.timestamp && file.isFile() ? ` (${Moment(stats.mtime).format('YYYY-MM-DD HH:mm:ss')})` : '';
 
 		const label = file.isDirectory()
 			? chalk.blue.bold(file.name + '/')
-			: file.name + sizeLabel;
+			: file.name + sizeLabel + timestampLabel;
 
 		const rawLabel = file.isDirectory()
 			? file.name + '/'
-			: file.name + sizeLabel;
+			: file.name + sizeLabel + timestampLabel;
 
 		entries.push({
 			display: `${prefix}${branch}${label}`,
@@ -73,16 +78,62 @@ export async function generateTree(
 	outPath: string | null,
 	cliIgnore: string[] | null,
 	options: ITreeOptions
-  	): Promise<void> {
-		if (cliIgnore?.length) {
-			ignored = cliIgnore;
-		} else if (options.useGitignore) {
-			const ignoreFiles = await loadGitignoreFile(startPath);
-			ignored = [...ignoreFiles];
-		} else {
-			const ignoreFiles = await loadIgnoreFile(startPath);
-			ignored = [...ignoreFiles];
+): Promise<void> {
+	// Default fallback
+	let ignoreFilePath = './.tree-visualizer-ignore';
+
+	if (cliIgnore?.length) { // If --ignore option is used
+		ignored = cliIgnore;
+	} else {
+		// --ignoreFile option 
+		if (options.ignoreFile) {
+			try {
+				// Check if the path exists
+				await fs.access(options.ignoreFile);
+	
+				const stat = await fs.stat(options.ignoreFile);
+				if (stat.isDirectory()) {
+					// If it's a directory, look for .tree-visualizer-ignore inside it
+					ignoreFilePath = path.join(options.ignoreFile, '.tree-visualizer-ignore');
+				} else {
+					// If it's a specific file, use it directly
+					ignoreFilePath = options.ignoreFile;
+				}
+	
+				// Validate and load from ignoreFilePath
+				await fs.access(ignoreFilePath);
+				ignored = await loadIgnoreFile(ignoreFilePath);
+	
+			} catch (err) {
+				console.error(chalk.red(`Error: Ignore file path invalid or file not found at ${options.ignoreFile}`));
+				process.exit(1);
+			}
+		} else if (options.useGitignore) { // --useGitignore option
+			// Use gitignore from project root
+			ignored = await loadGitignoreFile('./');
+		} else { // Default ignore file
+			// Use default .tree-visualizer-ignore from root
+			try {
+				await fs.access(ignoreFilePath);
+				ignored = await loadIgnoreFile(ignoreFilePath);
+			} catch (err) {
+				// Optional: warn if not found but don't fail
+				console.warn(chalk.yellow(`Warning: No default ignore file found at ${ignoreFilePath}`));
+			}
 		}
+	}
+
+	// Check if startPath exists and is a directory
+	try {
+		const stat = await fs.stat(startPath);
+		if (!stat.isDirectory()) {
+			console.error(chalk.red(`Error: ${startPath} is not a directory.`));
+			process.exit(1);
+		}
+	} catch (err) {
+		console.error(chalk.red(`Error: Directory ${startPath} does not exist.`));
+		process.exit(1);
+	}
 
 	const rootName = path.basename(startPath);
 	const displayRoot = chalk.green.bold(rootName + '/');

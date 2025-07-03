@@ -42,6 +42,7 @@ tree-visualizer [options]
 | `--max-depth <n>`     | Maximum folder depth to scan (default: unlimited)                           |
 | `--debug`             | Enable debug logging                                                        |
 | `--use-gitignore`     | Use `.gitignore` patterns for ignoring files                                |
+| `--ignoreFile`        | Specify the location of your ignore file                                    |
 
 
 ## 🧪 Examples
