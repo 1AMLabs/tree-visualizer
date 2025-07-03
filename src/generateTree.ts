@@ -80,7 +80,7 @@ export async function generateTree(
 	options: ITreeOptions
 ): Promise<void> {
 	// Default fallback
-	let ignoreFilePath = './.tree-visualizer-ignore';
+	let ignoreFilePath = './';
 
 	if (cliIgnore?.length) { // If --ignore option is used
 		ignored = cliIgnore;
